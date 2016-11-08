@@ -52,7 +52,9 @@
         <div class="extended-description">
           <%= @event.extended_html_description.html_safe %>
         </div>
-
+        <%= link_to xuat_hien_path(@event.id) do %>
+          <button class='btn btn-lg btn-block btn-danger'> Publish this event </button>
+        <% end %>
       </div>  
     </div>
   </div>

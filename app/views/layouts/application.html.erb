@@ -10,15 +10,31 @@
 
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
     <a class="navbar-brand" href="<%= root_path %>">Coder Ticket</a>
+   
+
     <ul class="nav navbar-nav">
+      <% if current_user %>
+       <li class="nav-item">
+         <%= link_to "Log out #{current_user.email}", logout_path, method: 'delete', class: 'nav-link' %>
+       </li>
+
+       
+       <% else %>
       <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
+        <%= link_to "Log In", new_session_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Sign Up</a>
+        
+      <%= link_to "Sign Up", users_new_path, class: 'nav-link' %>
       </li>
+      <%end%>
     </ul>
   </nav>  
+  <% unless flash.empty? %>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-warning"><%= value%></div>
+        <% end %>
+        <% end%>
 
 <%= yield %>
 

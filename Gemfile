@@ -47,6 +47,7 @@ gem 'font-kit-rails', '~> 1.2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
 end
 
 group :development do
@@ -55,5 +56,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'guard-rspec', require: false
 end
-
+  gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+  gem 'will_paginate', '~> 3.1.0'
+  gem 'bootstrap-will_paginate', '0.0.6'
