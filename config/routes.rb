@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "created_by_user/:id" => 'events#created_by_user' ,:as => 'created_by_user'
   get 'events/new' => 'events#new' 
   get 'events/:id/edit' => 'events#edit'
+  put 'events/:id/edit' => 'events#edit'
   post 'events' => 'events#create'
   root 'events#index'
 
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   
 
   resources :events do
+    get   :created_by_user, on: :collection
+
     resources :tickets do
       get   :create_type, on: :collection
       post  :create_type, on: :collection

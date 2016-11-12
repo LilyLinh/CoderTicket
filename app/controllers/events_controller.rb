@@ -6,6 +6,17 @@ class EventsController < ApplicationController
     @future_events = Event.future
     
   end 
+  def self.future
+   where("ends_at > ?", Time.now).published 
+  end
+  
+  def self.published
+  where.not(published_at: nil)
+  end
+
+  def self.in_groups_of
+  
+  end
 
   def new
   	@event = Event.new
