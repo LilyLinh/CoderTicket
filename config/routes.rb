@@ -6,10 +6,11 @@ Rails.application.routes.draw do
 
   get '/events/:event_id/tickets/create_type' => 'tickets#create_type'
   get "xuat_hien/:id" => 'events#xuat_hien' ,:as => 'xuat_hien'
-  get "created_by_user/:id" => 'events#created_by_user' ,:as => 'created_by_user'
+  get "created_by_user" => 'events#created_by_user'
   get 'events/new' => 'events#new' 
   get 'events/:id/edit' => 'events#edit'
   put 'events/:id/edit' => 'events#edit'
+  post 'events/update' => 'events#update'
   post 'events' => 'events#create'
   root 'events#index'
 

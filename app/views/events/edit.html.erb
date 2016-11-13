@@ -6,7 +6,8 @@
   <div class="container" id="new-event-form">
     <% selected_venue = 1 %>
     <% selected_category = 1 %>
-    <%= form_for :event, url: edit_event_path(@event), method: :put do |f| %>
+    <%= form_for :event, url: events_update_path, method: :post do |f| %>
+      <%= f.hidden_field :id, value: @event.id %>
       <div class="row" style="margin-top: 10pt">
         <div class="col-md-12">
           <%= f.text_field :name, value: @event.name, placeholder: 'Event Name', required: true %>
@@ -36,8 +37,6 @@
       </div>
       <div class="row" style="margin-top: 14pt; padding-left: 10pt; padding-right: 10pt">
         <%= f.submit 'Update', class: 'btn btn-success' %>
-        <%= link_to root_path do %>
-        <% end %>
       </div>
     <% end %>
   </div>

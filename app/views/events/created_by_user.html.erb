@@ -1,1 +1,5 @@
-<%= @current_user.events %>
+<table style="margin-top: 50px">
+	<% @current_user.events.each do |event| %>
+		<td><%= event.name %></td>
+	<% end %>
+</table>

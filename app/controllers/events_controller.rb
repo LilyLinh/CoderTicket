@@ -38,11 +38,26 @@ class EventsController < ApplicationController
     
   end
   
-   def edit
+  def edit
     @event = Event.find params[:id]
   end
 
+  def update
+    @event = Event.find params[:event][:id]
+    @event.update(
+      name: params[:event][:name],
+      venue_id: params[:event][:venue_id],
+      starts_at: params[:event][:starts_at],
+      ends_at: params[:event][:ends_at],
+      category_id: params[:event][:category_id],
+      extended_html_description: params[:event][:extended_html_description]
+    )
+
+    redirect_to event_path(@event)
+  end
+
    def created_by_user
+    puts current_user.events.first.name
     @events = current_user.events
   end
 
